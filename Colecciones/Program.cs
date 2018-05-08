@@ -61,6 +61,14 @@ namespace Colecciones
             IncrementaPrecio(productos, 5);
             ListarProductos(productos);
 
+            // Diccionarios
+
+            var d = new Dictionary<string, Producto>();
+
+            d.Add(p1.Codigo, p1);
+            d.Add(p2.Codigo, p2);
+            d.Add(p3.Codigo, p3);
+
         }
 
         private static void IncrementaPrecio(List<Producto> productos, double porcentaje)
