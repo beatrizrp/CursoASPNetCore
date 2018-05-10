@@ -24,5 +24,10 @@ namespace MiAPI.Controllers
         {
             return _service.GetTodoLists();
         }
+
+        public TodoList GetList(int id)
+        {
+            return _service.GetTodoList(id);
+        }
     }
 }
