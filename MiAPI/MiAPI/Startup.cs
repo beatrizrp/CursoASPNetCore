@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MiAPI.Custom;
 using MiAPI.Persistence;
 using MiAPI.Services;
 using Microsoft.AspNetCore.Builder;
@@ -61,10 +62,12 @@ namespace MiAPI
 
                 var path = context.Request.Path;
                 var statusCode = context.Response.StatusCode;
-                var logString = $"Path = '{path}', status = {statusCode}, time = {watch.Elapsed}";
+                var logString = $"Log desde clase MIddleware: Path = '{path}', status = {statusCode}, time = {watch.Elapsed}";
 
                 logger.LogInformation(logString);
             });
+
+            app.UseMiddleware<SimpleProfilerMiddleware>();
 
             app.UseMvc();
         }
